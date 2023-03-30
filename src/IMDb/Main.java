@@ -1,7 +1,9 @@
 package IMDb;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -33,9 +35,19 @@ public class Main {
         // exibir e manipular os dados
 
         for (Map<String, String> filme : listaDeFilmes) {
-            System.out.println("Titulo: "+filme.get("title"));
-            System.out.println("imagem -> "+filme.get("image"));
-            System.out.println("Nota: "+filme.get("imDbRating"));
+
+            String urlImagem = filme.get("image");
+            String titulo = filme.get("title");
+
+            InputStream inputStream = new URL(urlImagem).openStream();
+            String nomeArquivo = titulo + ".png";
+
+            GeradorDeFigurinhas geradora = new GeradorDeFigurinhas();
+            geradora.cria(inputStream, nomeArquivo);
+
+            System.out.println("Titulo: " + filme.get("title"));
+            System.out.println("imagem -> " + filme.get("image"));
+            System.out.println("Nota: " + filme.get("imDbRating"));
             System.out.println();
         }
 
