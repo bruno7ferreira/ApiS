@@ -33,9 +33,9 @@ public class Main {
         // exibir e manipular os dados
 
         for (Map<String, String> filme : listaDeFilmes) {
-            System.out.println(filme.get("title"));
-            System.out.println(filme.get("image"));
-            System.out.println(filme.get("imDbRating"));
+            System.out.println("Titulo: "+filme.get("title"));
+            System.out.println("imagem -> "+filme.get("image"));
+            System.out.println("Nota: "+filme.get("imDbRating"));
             System.out.println();
         }
 
