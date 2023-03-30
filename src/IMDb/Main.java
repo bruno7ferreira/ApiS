@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Olá mundo!");
         // fazer uma conexao http e pegar os dados do imdb
-        String url = "https://imdb-api.com/en/API/Top250TVs/k_tmhk2tbz";
+        String url = "https://imdb-api.com/en/API/Top250Movies/k_tmhk2tbz";
         URI endereco = URI.create(url);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
